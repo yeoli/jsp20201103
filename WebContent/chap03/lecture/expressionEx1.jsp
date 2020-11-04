@@ -11,60 +11,37 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-for(int i=0; i<5; i++) {	
-%>
 <h1>Lorem ipsum dolor.</h1>
-<%}%>
+<%
+String name = "java";
+%>
 
+<%= name %>
+<h1 />
 <%
 java.util.List<String> list = new java.util.ArrayList<>();
-list.add("java");
-list.add("dfd");
-list.add("hhf");
-list.add("mkl");
+list.add("adg");
+list.add("ahghr");
+list.add("rhh");
+list.add("hnnn");
 %>
 
 <ul>
 <%
 for(String item : list) {
 %>
-<li>
-<% out.print(item); %>
-</li>
+	<li><%= item %></li>
 <%
-}%>
+}
+%>
 </ul>
-
-<% boolean danger = false; %>
-<% if(danger) { %>
-<h1 class = "text-danger">Danger!!</h1>
-<% } else { %>
-<h1 class = "text-info">INFO~~~~</h1>
-<%
-}%>
-
-<%for(int i=0; i<5; i++) { 
- for(int j=-1; j<i; j++) {
-	out.print("*"); 
- }%>
-   <br>
- <% } %>
- 
- <br>
- 
-<% for(int i=0; i<5; i++) { 
- for(int j=5; j>i; j--) {
- 	out.print("*");
- 	}%>
- 	<br>
- <% } %>
- 
-<% for(int i=1; i<6; i++) {
-	for(int j=1; j<i+1; j++) {
-	out.print(" ");}%>
-	<br>
-<% } out.print("*"); %>
-
 </body>
+
+<hr/>
+
+<%
+String status = "danger";
+%>
+
+<h1 class="text-<%=status %>">Lorem ipsum dolor.</h1>
 </html>
