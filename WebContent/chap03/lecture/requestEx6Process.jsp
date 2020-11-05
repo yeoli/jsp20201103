@@ -26,7 +26,8 @@ List<Integer> selectedList = new ArrayList<>();
 for(String s : ss) {
 	selectedList.add(Integer.valueOf(s));
 }%>
-선택한 번호 : [<% int i =0;
+선택한 번호 :<%-- <%=selectedList %> --%>
+			[<% int i =0;
 
 		    for(String item : ss){
   			out.print(item);
