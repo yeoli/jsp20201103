@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ page import = "java.util.*" %>
     <%request.setCharacterEncoding("utf-8");%>
+body_sub에서 name 파라미터 값: <%=request.getParameter("name")%>
 <br />
 name 파라미터 값 목록:
 <ul>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ page import = "java.util.*" %>
     <%request.setCharacterEncoding("utf-8");%>
-<div class="container">
-	<h1>lululul last</h1>
-	
-</div>s
+
+<% 
+response.sendRedirect("redirectEx1target.jsp");
+%>
