@@ -1,7 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import = "java.util.*" %>
+    <%@ page import = "chap05.Post" %>
     <%request.setCharacterEncoding("utf-8");%>
+    
+<%
+String id = request.getParameter("id");
+int i = Integer.parseInt(id);
+
+List<Post> list2 = (List<Post>) application.getAttribute("list");
+Post post = list2.get(i); 
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +22,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	제목 :
+	<input type="text" value="<%= post.getTitle()%>" readonly />
+	<br />
+	<textarea cols="30" rows="10" readonly><%= post.getBody() %></textarea>
+	<br />
+	<a href="post2.jsp">게시글 작성</a>
 </body>
 </html>

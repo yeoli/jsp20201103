@@ -4,10 +4,10 @@
     <%@ page import = "chap05.Post" %>
     <%request.setCharacterEncoding("utf-8");%>
     <%
-    Map<Post, Integer> list = (Map<Post, Integer>) application.getAttribute("list");
+    List<Post> list = (List<Post>) application.getAttribute("list");
     int id = 0;
     if (list == null) {
-    	list = new HashMap<>();
+    	list = new ArrayList<Post>();
     	application.setAttribute("list", list);
     }
     
@@ -20,7 +20,7 @@
     	p.setTitle(title);
     	p.setBody(body);
     	
-    	list.put(p, id);
+    	list.add(p);
     }
     
     %>
@@ -45,7 +45,7 @@
 	     <%
 	     for (int i = 0; i < list.size(); i++)  {
 	     %>
-	     <li><a href="detail.jsp?id=<%= i %>"><%=list.%></a></li>
+	     <li><a href="detail2.jsp?id=<%= i %>"><%=list.get(i).getTitle()%></a></li>
 	     <%
 		 }
 	     %>
