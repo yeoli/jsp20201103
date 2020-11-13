@@ -7,6 +7,7 @@
 <%
 List<Department> list = EmployeeDao2.listEmployeeName();
 Department dep = new Department();
+int count = 0;
 %>
 
 <!DOCTYPE html>
@@ -29,9 +30,10 @@ Department dep = new Department();
 	<%
 	  for (int i = 0; i < list.size(); i++) {
 		  dep = list.get(i);
+		  count += dep.getDno();
 	%>
 	<tr>
-		<td><%=dep.getDno() * 20 %></td>
+		<td><%=dep.getDno() %></td>
 		<td><%=dep.getDname() %></td>
 		<td><%=dep.getLoc() %></td>
 	</tr>
@@ -39,6 +41,6 @@ Department dep = new Department();
 	 }
 	%>
 </table>
-<h3>결과 :  </h3>
+<h3>결과 :  <%= count %></h3>
 </body>
 </html>

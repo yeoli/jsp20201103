@@ -13,8 +13,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%int number = 10;%>
-<%@ include file="includee.jspf" %>
-<%-- 공통변수 DATEFOLDER = "<%= dataFolder %>" --%>
+<form action="likeEx1View.jsp">
+이름 : <input type="text" name="name" /> <br />
+<input type="submit" value="찾기" />
+</form>
 </body>
 </html>

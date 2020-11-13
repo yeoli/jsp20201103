@@ -13,8 +13,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%int number = 10;%>
-<%@ include file="includee.jspf" %>
-<%-- 공통변수 DATEFOLDER = "<%= dataFolder %>" --%>
+<form action="orderEx1View.jsp">
+이름 : <input type="text" name="name" /> <br />
+정렬 : 
+<select name="order" id="">
+	<option value="1">안함</option>
+	<option value="2">오름차순</option>
+	<option value="3">내림차순</option>
+</select>
+<br />
+<input type="submit" value="검색" />
+</form>
 </body>
 </html>

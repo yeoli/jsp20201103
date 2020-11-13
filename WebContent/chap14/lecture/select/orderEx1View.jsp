@@ -1,7 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import = "java.util.*" %>
+    <%@ page import = "chap14.EmployeeDao" %>
     <%request.setCharacterEncoding("utf-8");%>
+<%
+String name = request.getParameter("name");
+String order = request.getParameter("order");
+if (name == null) {
+	name = "";
+}
+name = name.toUpperCase();
+
+if (order == null) {
+	order = "1";
+}
+
+List<String> list = null;
+
+switch (order) {
+case "1" :
+	list = EmployeeDao.getNameLike(name);
+	break;
+case "2" :
+	list = EmployeeDao.getNameList(name, true);
+	break;
+case "3" :
+	list = EmployeeDao.getNameList(name, false);
+	break;
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +40,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%int number = 10;%>
-<%@ include file="includee.jspf" %>
-<%-- 공통변수 DATEFOLDER = "<%= dataFolder %>" --%>
+<h1>검색된 이름</h1>
+<%
+if (list.size() > 0) {
+%>
+	<ul>
+	<%
+	for (String n : list) {
+	%>
+		<li><%=n %></li>
+	<%
+	}
+	%>
+	</ul>
+<% 
+} else {
+%>
+    <h2>검색된 이름 없음</h2>
+<%
+}
+%>
 </body>
 </html>

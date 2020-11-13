@@ -1,7 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import = "java.util.*" %>
+    <%@ page import = "java.sql.*" %>
     <%request.setCharacterEncoding("utf-8");%>
+<% String sql = "SELECT hiredate FROM employee WHERE eno=7499";
+
+String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+String user = "c##mydbms";
+String pw = "admin";
+
+java.sql.Date hireDate = null;
+
+Class.forName("oracle.jdbc.driver.OracleDriver");
+
+try (Connection conn = DriverManager.getConnection(url, user, pw);
+		 Statement stmt = conn.createStatement();) {
+		
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		if (rs.next()) {
+			hireDate = rs.getDate("hiredate");
+		}
+			 
+	} catch (Exception e) {
+	  e.printStackTrace();	
+	}
+
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +39,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%int number = 10;%>
-<%@ include file="includee.jspf" %>
-<%-- 공통변수 DATEFOLDER = "<%= dataFolder %>" --%>
+<h1>hireDate : <%= hireDate %></h1>
 </body>
 </html>
