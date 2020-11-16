@@ -174,4 +174,6 @@ SELECT TO_NUMBER('200,000', '999,999') FROM dual;
 
 SELECT SUBSTR(hiredate, 1, 2), SUBSTR(hiredate, 4,2) FROM employee;
 
+SELECT TO_NUMBER('50,000', '99,999') FROM dual;
+
 
