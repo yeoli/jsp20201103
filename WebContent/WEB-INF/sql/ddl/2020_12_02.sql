@@ -179,6 +179,35 @@ VALUES (7000, 'CANDY', 'MANAGER', '2012/01/03', 10);
 
 -- oraclecloud : VALUES (7000, 'CANDY', 'MANAGER', TO_DATE('2012/01/03', 'YYYY/MM/DD'), 10);
 
+SELECT * FROM emp_copy;
+
+INSERT INTO emp_copy
+VALUES (7010, 'TOM', 'MANAGER', TO_DATE('2012,05,01', 'YYYY,MM,DD'), 20);
+
+INSERT INTO emp_copy
+VALUES (7020, 'JERRY', 'SALESMAN', SYSDATE, 30);
+
+DROP TABLE dept_copy;
+
+CREATE TABLE dept_copy
+AS
+SELECT * FROM department WHERE 0=1;
+SELECT * FROM dept_copy;
+
+INSERT INTO dept_copy
+SELECT * FROM department;
+
+CREATE TABLE guest_book
+ (
+ title VARCHAR2(255),
+ body VARCHAR2(3000),
+ inserted DATE
+ );
+ 
+DESC guest_book;
+SELECT * FROM employee;
+
+DELETE FROM employee WHERE eno = 1212;
 
 
 
