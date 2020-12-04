@@ -1,6 +1,6 @@
--- 14°³Çà, 8°³¿­
+-- 14ï¿½ï¿½ï¿½ï¿½, 8ï¿½ï¿½ï¿½ï¿½
 SELECT * FROM employee;
--- 4°³Çà, 3°³¿­
+-- 4ï¿½ï¿½ï¿½ï¿½, 3ï¿½ï¿½ï¿½ï¿½
 SELECT * FROM department;
 SELECT * FROM salgrade;
 
@@ -56,7 +56,7 @@ SELECT e.ename, d.dname FROM employee e, department d WHERE e.dno = d.dno AND e.
 SELECT * FROM employee;
 SELECT * FROM salgrade;
 
-SELECT * FROM employee e, salgrade s --14*5=70 ³ª¿È 
+SELECT * FROM employee e, salgrade s --14*5=70 ï¿½ï¿½ï¿½ï¿½ 
 WHERE e.salary BETWEEN s.losal AND s.hisal;
 
 SELECT e.eno, e.ename, d.dname, e.salary, s.grade 
@@ -101,7 +101,7 @@ WHERE e1.manager = e2.eno(+);
 SELECT e1.eno, e1.manager, e2.eno FROM employee e1
 LEFT OUTER JOIN employee e2 ON e1.manager = e2.eno;
 
-SELECT employees.ename || 'ÀÇ Á÷¼Ó »ó°üÀº' || decode(manager.ename, null, ' ¾øÀ½', manager.ename)
+SELECT employees.ename || 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½' || decode(manager.ename, null, ' ï¿½ï¿½ï¿½ï¿½', manager.ename)
 FROM employee employees join employee manager
 on employees.manager = manager.eno(+);
 
@@ -168,3 +168,5 @@ WHERE ot.hiredate > me.hiredate AND me.ename = 'WARD' ORDER BY hiredate;
 SELECT ma.ename, ma.hiredate, sa.ename, sa.hiredate
 FROM employee ma, employee sa WHERE ma.hiredate <= sa.hiredate
 AND ma.manager = sa.eno;
+
+
