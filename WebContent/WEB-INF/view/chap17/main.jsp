@@ -45,8 +45,8 @@
    </tbody>
   </table>
 </div>
-<div class="container">
+<%-- <div class="container">
   <textarea name="body2" id="" cols="30" rows="5">${post.body}</textarea>
-</div>
+</div> --%>
 </body>
 </html>

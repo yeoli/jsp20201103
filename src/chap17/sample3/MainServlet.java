@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import chap05.Post;
+import chap20.lecture.DBUtil;
 
 /**
  * Servlet implementation class MainServlet
@@ -59,10 +60,11 @@ public class MainServlet extends HttpServlet {
 	
 		try {
 			// 1.드라이버로딩
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			//Class.forName("oracle.jdbc.driver.OracleDriver");
 			// 2.연결생성
-			Connection con = DriverManager.getConnection(url, user, password);
+			//Connection con = DriverManager.getConnection(url, user, password);
 			// 3.statement생성
+			Connection con = DBUtil.getConnection();
 			Statement stmt = con.createStatement();
 			// 4.쿼리 실행
 			ResultSet rs = stmt.executeQuery(sql);

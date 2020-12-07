@@ -1,4 +1,4 @@
-package chap14.servlet;
+package chap17.sample3;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import chap05.Post;
+import chap20.lecture.DBUtil;
 
 /**
  * Servlet implementation class DetailServlet
@@ -40,7 +41,7 @@ public class DetailServlet extends HttpServlet {
 		Post post = getPost(id);
 		List<Post> posts = getPosts();
 		
-		String path = "/WEB-INF/view/chap17/main.jsp";
+		String path = "/WEB-INF/view/chap17/detail.jsp";
 		request.setAttribute("post", post);
 		request.setAttribute("posts", posts);
 		request.getRequestDispatcher(path).forward(request, response);
@@ -57,10 +58,11 @@ public class DetailServlet extends HttpServlet {
 	
 		try {
 			// 1.드라이버로딩
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			//Class.forName("oracle.jdbc.driver.OracleDriver");
 			// 2.연결생성
-			Connection con = DriverManager.getConnection(url, user, password);
+			//Connection con = DriverManager.getConnection(url, user, password);
 			// 3.statement생성
+			Connection con = DBUtil.getConnection();
 			Statement stmt = con.createStatement();
 			// 4.쿼리 실행
 			ResultSet rs = stmt.executeQuery(sql);
@@ -82,7 +84,7 @@ public class DetailServlet extends HttpServlet {
 
 	private Post getPost(String id) {
         Post p = null;
-		String sql = "SELECT body FROM post WHERE id = ?";
+		String sql = "SELECT id, title, body FROM post WHERE id = ?";
 		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 	    String user = "c##mydbms"; // mydb00
 	    String password = "admin"; // adminAdmin12
@@ -103,7 +105,9 @@ public class DetailServlet extends HttpServlet {
 			
 			while (rs.next()) {
 			  p = new Post();
-			  p.setBody(rs.getString(1));
+			  p.setId(rs.getInt(1));
+			  p.setTitle(rs.getString(2));
+			  p.setBody(rs.getString(3));
 			}
 			// 6. statement, 연결 닫기
 			stmt.close();
